@@ -12,5 +12,6 @@ namespace game1402_a2_starter
         public string Name { get; set; }
         public string Reference { get; set; }
         public string Description { get; set; }
+        public bool isUnlocked { get; set; }
     }
 }

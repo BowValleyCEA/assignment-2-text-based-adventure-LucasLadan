@@ -1,5 +1,9 @@
 {
   "GameName": "Assignment 2",
   "Description": "Some game description for Assignment 2",
-  "Rooms":  [{"Name":"Living Room","Reference":"living_room","Description":"Place where people live, I guess."}, {"Name":"Dining Room","Reference":"dining_room","Description":"A dining for rooms"}]
+  "Rooms": [
+    {"Name": "Basement", "Reference": "basement", "Description": "The area you were trapped in", "isUnlocked": true},
+    {"Name": "Main room", "Reference": "main", "Description": "The main room of the house", "isUnlocked": true},
+    {"Name": "Living room", "Reference": "living", "Description": "For being the living room, it only has a couch facing the wall.", "isUnlocked": true},
+  ]
 }

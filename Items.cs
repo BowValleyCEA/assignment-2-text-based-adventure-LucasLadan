@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace game1402_a2_starter
 {
     [Serializable]
-    internal class Items
+    public class Item
     {
         public string Name { get; set; }
 
-        public string reference { get; set; }
+        public string Reference { get; set; }
 
-        public 
+        public string Location { get; set; }
 
     }
 }

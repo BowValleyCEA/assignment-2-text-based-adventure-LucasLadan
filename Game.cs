@@ -12,8 +12,12 @@ namespace game1402_a2_starter
         public string GameName { get; set; } //This is an example of a property; for whatever reason your serializable data objects will need to be written this way
         public string Description { get; set; }
         public List<Room> Rooms { get; set; } //this is only an example. You do not ha
-        
-      
+        public List<Item> Items { get; set; }
+        public string CurrentLocal {  get; set; }
+        public List<string> PickUpWords { get; set; }
+        public 
+
+
 
     }
 

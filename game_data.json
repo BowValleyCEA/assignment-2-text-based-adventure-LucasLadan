@@ -2,8 +2,19 @@
   "GameName": "Assignment 2",
   "Description": "Some game description for Assignment 2",
   "Rooms": [
-    {"Name": "Basement", "Reference": "basement", "Description": "The area you were trapped in", "isUnlocked": true},
-    {"Name": "Main room", "Reference": "main", "Description": "The main room of the house", "isUnlocked": true},
-    {"Name": "Living room", "Reference": "living", "Description": "For being the living room, it only has a couch facing the wall.", "isUnlocked": true},
+    {"Name": "Basement", "Reference": "base", "Description": "The area you were trapped in", "IsUnlocked": true},
+    {"Name": "Enterance", "Reference": "enter", "Description": "The enterance of the house", "IsUnlocked": false},
+    {"Name": "Living room", "Reference": "living", "Description": "The living room, it only has a couch", "I sUnlocked": false},
+    {"Name":  "Kitchen", "Reference":  "kitch", "Description":  "The place to make food", "IsUnlocked": false}
+  ],
+
+  "Items": [
+    {"Name":  "Crowbar", "Reference":  "crow", "Location":  "living"},
+    {"Name":  "Basement key", "Reference":  "key", "Location":  "living"},
+    {"Name":  "Enterance card", "Reference":  "card", "Location":  "living"}
+  ],
+  "CurrentLocal": "base",
+  "PickUpWords": [
+    "pick","grab","take","steal","collect"
   ]
 }

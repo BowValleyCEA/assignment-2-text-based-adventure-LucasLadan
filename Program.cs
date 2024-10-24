@@ -3,7 +3,7 @@ using System.Text.Json;
 using game1402_a2_starter;
 
 Console.WriteLine("Hello, World!");
-string fileName = "../../../game_data.json";//if you are ever worried about whether your json is valid or not, check out JSON Lint: 
+string fileName = "C:/Users/l.ladan419/Documents/Project - Lessons/Git/text adventure/game_data.json";//if you are ever worried about whether your json is valid or not, check out JSON Lint: 
 
 GameData yourGameData;
 string jsonString = File.ReadAllText(@fileName);

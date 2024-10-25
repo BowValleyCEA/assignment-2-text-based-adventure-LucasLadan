@@ -15,5 +15,7 @@ namespace game1402_a2_starter
 
         public string Location { get; set; }
 
+        public bool IsCollected {  get; set; }
+
     }
 }

@@ -2,19 +2,71 @@
   "GameName": "Assignment 2",
   "Description": "Some game description for Assignment 2",
   "Rooms": [
-    {"Name": "Basement", "Reference": "base", "Description": "The area you were trapped in", "IsUnlocked": true},
-    {"Name": "Enterance", "Reference": "enter", "Description": "The enterance of the house", "IsUnlocked": false},
-    {"Name": "Living room", "Reference": "living", "Description": "The living room, it only has a couch", "I sUnlocked": false},
-    {"Name":  "Kitchen", "Reference":  "kitch", "Description":  "The place to make food", "IsUnlocked": false}
+    {
+      "Name": "Basement",
+      "Reference": "base",
+      "Description": "The only thing in this room is the door and a table",
+      "IsUnlocked": true
+    },
+    {
+      "Name": "Enterance",
+      "Reference": "enter",
+      "Description": "The enterance door has a keycard scanner",
+      "IsUnlocked": false
+    },
+    {
+      "Name": "Living room",
+      "Reference": "living",
+      "Description": "The living room, it only has a couch",
+      "IsUnlocked": false
+    },
+    {
+      "Name": "Kitchen",
+      "Reference": "kitch",
+      "Description": "The rest of the room doesn't matter, just grab the card",
+      "IsUnlocked": false
+    }
   ],
 
   "Items": [
-    {"Name":  "Crowbar", "Reference":  "crow", "Location":  "living"},
-    {"Name":  "Basement key", "Reference":  "key", "Location":  "living"},
-    {"Name":  "Enterance card", "Reference":  "card", "Location":  "living"}
+    {
+      "Name": "Crowbar",
+      "Reference": "crow",
+      "Location": "living",
+      "IsCollected": false
+    },
+    {
+      "Name": "Basement key",
+      "Reference": "key",
+      "Location": "base",
+      "IsCollected": false
+    },
+    {
+      "Name": "Enterance card",
+      "Reference": "card",
+      "Location": "kitch",
+      "IsCollected": false
+    }
   ],
   "CurrentLocal": "base",
   "PickUpWords": [
-    "pick","grab","take","steal","collect"
+    "pick",
+    "grab",
+    "take",
+    "steal",
+    "collect"
+  ],
+  "MoveWords": [
+    "go",
+    "move",
+    "head",
+    "toward"
+  ],
+  "UseWords": [
+    "use",
+    "item"
+  ],
+  "LookingWords": [
+    "invest","look","search"
   ]
 }

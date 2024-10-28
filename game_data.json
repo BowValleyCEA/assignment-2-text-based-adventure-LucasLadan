@@ -15,15 +15,15 @@
       "IsUnlocked": false
     },
     {
-      "Name": "Living room",
-      "Reference": "living",
-      "Description": "The living room, it only has a couch",
-      "IsUnlocked": false
-    },
-    {
       "Name": "Kitchen",
       "Reference": "kitch",
       "Description": "The rest of the room doesn't matter, just grab the card",
+      "IsUnlocked": false
+    },
+    {
+      "Name": "Outside",
+      "Reference": "out",
+      "Description": "The game ends here",
       "IsUnlocked": false
     }
   ],
@@ -32,20 +32,26 @@
     {
       "Name": "Crowbar",
       "Reference": "crow",
-      "Location": "living",
-      "IsCollected": false
+      "Location": "kitch",
+      "IsCollected": false,
+      "UnlockRoom": "kitch",
+      "UseLocation": "enter"
     },
     {
       "Name": "Basement key",
       "Reference": "key",
       "Location": "base",
-      "IsCollected": false
+      "IsCollected": false,
+      "UnlockRoom": "enter" ,
+      "UseLocation": "base"
     },
     {
       "Name": "Enterance card",
       "Reference": "card",
       "Location": "kitch",
-      "IsCollected": false
+      "IsCollected": false,
+      "UnlockRoom": "out" ,
+      "UseLocation": "enter"
     }
   ],
   "CurrentLocal": "base",

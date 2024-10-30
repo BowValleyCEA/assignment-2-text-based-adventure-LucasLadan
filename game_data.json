@@ -5,19 +5,19 @@
     {
       "Name": "Basement",
       "Reference": "base",
-      "Description": "The only thing in this room is the door and a table",
+      "Description": "The only thing in this room is a door and a table",
       "IsUnlocked": true
     },
     {
       "Name": "Enterance",
       "Reference": "enter",
-      "Description": "The enterance door has a keycard scanner",
+      "Description": "The enterance door has a card scanner, the door to the kitchen is locked",
       "IsUnlocked": false
     },
     {
       "Name": "Kitchen",
       "Reference": "kitch",
-      "Description": "The rest of the room doesn't matter, just grab the card",
+      "Description": "You see a card on the table",
       "IsUnlocked": false
     },
     {

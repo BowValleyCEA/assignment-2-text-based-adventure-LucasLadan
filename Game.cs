@@ -77,7 +77,11 @@ namespace game1402_a2_starter
                             {
                                 if (gameData.Rooms[j].IsUnlocked)//If the room is unlocked
                                 {
-                                    Console.WriteLine("You moved to the " + gameData.Rooms[i].Name);
+                                    Console.WriteLine("You moved to the " + gameData.Rooms[j].Name);
+                                    if (gameData.Rooms[j].Reference == "out")
+                                    {
+                                        Console.WriteLine("Congrats you escaped");
+                                    }
                                     gameData.CurrentLocal = gameData.Rooms[j].Reference;
                                     return;
                                 }
@@ -111,6 +115,8 @@ namespace game1402_a2_starter
                                     if (gameData.Items[j].Location == gameData.CurrentLocal)//If they're in the room with that item
                                     {
                                         Console.WriteLine("You got the " + gameData.Items[j].Name);
+                                        gameData.Items[j].IsCollected = true;
+                                        return;
                                     }
                                     else
                                     {
@@ -133,31 +139,31 @@ namespace game1402_a2_starter
             }
 
             //Using an item
-            for (int i = 0; i < gameData.PickUpWords.Count; i++)
+            for (int i = 0; i < gameData.UseWords.Count; i++)
             {
-                if (commands[0].Contains(gameData.PickUpWords[i]))
+                if (commands[0].Contains(gameData.UseWords[i]))
                 {
                     for (i = 0; i < commands.Length; i++)
                     {
-                        for (int j = 0; j < gameData.Rooms.Count; j++)
+                        for (int j = 0; j < gameData.Items.Count; j++)
                         {
                             if (commands[i].Contains(gameData.Items[j].Reference))//If the user mention a item
                             {
-                                if (!gameData.Items[j].IsCollected)//If they already have the item
+                                if (gameData.Items[j].IsCollected)//If they have the item
                                 {
-                                    if (gameData.Items[j].UseLocation == gameData.CurrentLocal)//If they're in the room with that item
+                                    if (gameData.Items[j].UseLocation == gameData.CurrentLocal)//If they're in the room to use this item
                                     {
                                         for (int k = 0; k < gameData.Rooms.Count; k++)
                                         {
-                                            if (gameData.Items[j].UnlockLocation == gameData.Rooms[k].Reference)//Checking for the room thats supposed to be unlocked
+                                            if (gameData.Items[j].UnlockRoom == gameData.Rooms[k].Reference)//Looking for the room thats supposed to be unlocked
                                             {
                                                 gameData.Rooms[k].IsUnlocked = true;
-                                                Console.WriteLine("You unlocked the " + gameData.Rooms[k].Name);
+                                                Console.WriteLine("You unlocked the way to the " + gameData.Rooms[k].Name);
+                                                return;
                                             }
-                                            return;
                                         }
                                     }
-                                    else
+                                    else//If the player is in the wrong position
                                     {
                                         Console.WriteLine("You aren't in the room that needs that item");
                                         return;
@@ -176,6 +182,8 @@ namespace game1402_a2_starter
                     return;
                 }
             }
+        
+            Console.WriteLine("Unknown command");
         }
     }
 

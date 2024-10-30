@@ -17,7 +17,7 @@ namespace game1402_a2_starter
 
         public bool IsCollected {  get; set; }
 
-        public string UnlockLocation { get; set; }
+        public string UnlockRoom { get; set; }
 
         public string UseLocation { get; set; }
 

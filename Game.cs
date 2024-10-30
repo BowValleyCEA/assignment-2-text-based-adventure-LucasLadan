@@ -13,7 +13,7 @@ namespace game1402_a2_starter
         public string Description { get; set; }
         public List<Room> Rooms { get; set; } //this is only an example. You do not ha
         public List<Item> Items { get; set; }
-        public string CurrentLocal {  get; set; }
+        public string CurrentLocal { get; set; }
         public List<string> PickUpWords { get; set; }
         public List<string> MoveWords { get; set; }
         public List<string> UseWords { get; set; }
@@ -27,10 +27,10 @@ namespace game1402_a2_starter
         public void ProcessString(string enteredString)
         {
             enteredString = enteredString.Trim().ToLower();
-            string[]commands = enteredString.Split(" ");
+            string[] commands = enteredString.Split(" ");
 
             //Investigating a room
-            for (int i = 0;i < gameData.LookingWords.Count;i++)
+            for (int i = 0; i < gameData.LookingWords.Count; i++)
             {
                 if (commands[0].Contains(gameData.LookingWords[i]))//If the user entered a investigating key word
                 {
@@ -65,19 +65,19 @@ namespace game1402_a2_starter
             }
 
             //Moving towards another room
-            for (int i = 0;i < gameData.MoveWords.Count; i++)
+            for (int i = 0; i < gameData.MoveWords.Count; i++)
             {
                 if (commands[0].Contains(gameData.MoveWords[i]))//If the user enters a movement key word
                 {
                     for (i = 0; i < commands.Length; i++)
                     {
-                        for (int j = 0;j < gameData.Rooms.Count; j++)//I have no other ideas on how to do this without a triple for loop
+                        for (int j = 0; j < gameData.Rooms.Count; j++)//I have no other ideas on how to do this without a triple for loop
                         {
                             if (commands[i].Contains(gameData.Rooms[j].Reference))//If the user mentions the room
                             {
                                 if (gameData.Rooms[j].IsUnlocked)//If the room is unlocked
                                 {
-                                    Console.WriteLine("You moved to the "+gameData.Rooms[i].Name);
+                                    Console.WriteLine("You moved to the " + gameData.Rooms[i].Name);
                                     gameData.CurrentLocal = gameData.Rooms[j].Reference;
                                     return;
                                 }
@@ -96,13 +96,13 @@ namespace game1402_a2_starter
             }
 
             //Picking up an item
-            for (int i = 0;i < gameData.PickUpWords.Count; i++)
+            for (int i = 0; i < gameData.PickUpWords.Count; i++)
             {
                 if (commands[0].Contains(gameData.PickUpWords[i]))
                 {
-                    for (i = 0;i < commands.Length; i++)
+                    for (i = 0; i < commands.Length; i++)
                     {
-                        for (int j = 0;j < gameData.Rooms.Count; j++)
+                        for (int j = 0; j < gameData.Items.Count; j++)
                         {
                             if (commands[i].Contains(gameData.Items[j].Reference))//If the user mention a item
                             {
@@ -145,19 +145,27 @@ namespace game1402_a2_starter
                             {
                                 if (!gameData.Items[j].IsCollected)//If they already have the item
                                 {
-                                    if (gameData.Items[j].Location == gameData.CurrentLocal)//If they're in the room with that item
+                                    if (gameData.Items[j].UseLocation == gameData.CurrentLocal)//If they're in the room with that item
                                     {
-                                        Console.WriteLine("You got the " + gameData.Items[j].Name);
+                                        for (int k = 0; k < gameData.Rooms.Count; k++)
+                                        {
+                                            if (gameData.Items[j].UnlockLocation == gameData.Rooms[k].Reference)//Checking for the room thats supposed to be unlocked
+                                            {
+                                                gameData.Rooms[k].IsUnlocked = true;
+                                                Console.WriteLine("You unlocked the " + gameData.Rooms[k].Name);
+                                            }
+                                            return;
+                                        }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("You aren't in the room with that item");
+                                        Console.WriteLine("You aren't in the room that needs that item");
                                         return;
                                     }
                                 }
                                 else//If the room is locked
                                 {
-                                    Console.WriteLine("You already have " + gameData.Items[j].Name);
+                                    Console.WriteLine("You don't have that item");
                                     return;
                                 }
                             }
@@ -171,6 +179,6 @@ namespace game1402_a2_starter
         }
     }
 
-    }
-
 }
+
+

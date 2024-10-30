@@ -32,7 +32,7 @@
     {
       "Name": "Crowbar",
       "Reference": "crow",
-      "Location": "kitch",
+      "Location": "enter",
       "IsCollected": false,
       "UnlockRoom": "kitch",
       "UseLocation": "enter"

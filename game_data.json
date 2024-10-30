@@ -11,7 +11,7 @@
     {
       "Name": "Enterance",
       "Reference": "enter",
-      "Description": "The enterance door has a card scanner, the door to the kitchen is locked",
+      "Description": "The outside door has a card scanner, the door to the kitchen is locked",
       "IsUnlocked": false
     },
     {
@@ -69,10 +69,16 @@
     "toward"
   ],
   "UseWords": [
-    "use",
+    "us",
     "item"
   ],
   "LookingWords": [
-    "invest","look","search"
+    "invest",
+    "look",
+    "search"
+  ],
+
+  "UnlockWords": [
+    "unlock","break"
   ]
 }

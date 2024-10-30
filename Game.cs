@@ -18,6 +18,7 @@ namespace game1402_a2_starter
         public List<string> MoveWords { get; set; }
         public List<string> UseWords { get; set; }
         public List<string> LookingWords { get; set; }
+        public List<string> UnlockWords { get; set; }
     }
 
     public class Game(GameData data)
@@ -182,7 +183,57 @@ namespace game1402_a2_starter
                     return;
                 }
             }
-        
+
+
+            //Unlocking a room
+            for (int i = 0; i < gameData.UnlockWords.Count; i++)
+            {
+                if (commands[0].Contains(gameData.UnlockWords[i]))
+                {
+                    for (i = 0; i < commands.Length; i++)
+                    {
+                        for (int j = 0; j < gameData.Rooms.Count; j++)
+                        {
+                            if (commands[i].Contains(gameData.Rooms[j].Reference))//If the user mentions a room
+                            {
+                                if (!gameData.Rooms[j].IsUnlocked)//If the room is already unlocked
+                                {
+                                    for (int k = 0; k < gameData.Items.Count; k++)
+                                    {
+                                        if (gameData.Items[k].IsCollected)//Looking for the item that's supposed to be used
+                                        {
+                                            if (gameData.Items[k].UnlockRoom == gameData.Rooms[j].Reference)
+                                            {
+                                                gameData.Rooms[j].IsUnlocked = true;
+                                                Console.WriteLine("You unlocked the way to the " + gameData.Rooms[j].Name);
+                                                return;
+                                            }
+                                        }
+                                    }
+                                    Console.WriteLine("You don't have the necessary item");
+                                    return;
+                                }
+                                else//If the room is locked
+                                {
+                                    Console.WriteLine("That room is already unlocked");
+                                    if (gameData.Rooms[j].Reference == "base")
+                                    {
+                                        Console.WriteLine("The door you want to unlock is the enterance door");
+                                    }
+                                    if (gameData.Rooms[j].Reference == "enter")
+                                    {
+                                        Console.WriteLine("The door you want to unlock is the outside door");
+                                    }
+                                    return;
+                                }
+                            }
+                        }
+                    }
+
+                    Console.WriteLine("Unknown room with that name");
+                    return;
+                }
+            }
             Console.WriteLine("Unknown command");
         }
     }
